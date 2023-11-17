@@ -91,7 +91,7 @@ void mohamed_pop(stack_t **head, unsigned int c)
 
 /**
  * mohamed_swap - adds the top two elements of the stack.
- * @head: stack head
+ * @stack: stack head
  * @ln: line_number
  * Return: no return
  */
@@ -101,7 +101,7 @@ void mohamed_swap(stack_t **stack, unsigned int ln)
 	stack_t *h;
 	int len = 0, aux;
 
-	h = *head;
+	h = *stack;
 	while (h)
 	{
 		h = h->next;
