@@ -52,33 +52,33 @@ void find_func(char *, char *, int, int);
 /*Stack operations*/
 stack_t *create_node(int n);
 void free_nodes(void);
-void print_stack(stack_t **, unsigned int);
-void add_to_stack(stack_t **, unsigned int);
-void add_to_queue(stack_t **, unsigned int);
+void prStack(stack_t **, unsigned int);
+void add_Stack(stack_t **, unsigned int);
+void add_Queue(stack_t **, unsigned int);
 
 void call_fun(op_func, char *, char *, int, int);
 
 void print_top(stack_t **, unsigned int);
 void pop_top(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
-void swap_nodes(stack_t **, unsigned int);
+void op_swap(stack_t **, unsigned int);
 
 /*Math operations with nodes*/
-void add_nodes(stack_t **, unsigned int);
-void sub_nodes(stack_t **, unsigned int);
-void div_nodes(stack_t **, unsigned int);
-void mul_nodes(stack_t **, unsigned int);
-void mod_nodes(stack_t **, unsigned int);
+void op_add(stack_t **, unsigned int);
+void op_sub(stack_t **, unsigned int);
+void op_div(stack_t **, unsigned int);
+void op_mul(stack_t **, unsigned int);
+void op_mod(stack_t **, unsigned int);
 
 /*String operations*/
-void print_char(stack_t **, unsigned int);
-void print_str(stack_t **, unsigned int);
+void medo_char(stack_t **, unsigned int);
+void print_string(stack_t **, unsigned int);
 void rotl(stack_t **, unsigned int);
 
 /*Error hanlding*/
 void err(int error_code, ...);
 void more_err(int error_code, ...);
-void string_err(int error_code, ...);
+void str_error(int error_code, ...);
 void rotr(stack_t **, unsigned int);
 
 #endif
