@@ -87,7 +87,7 @@ void op_div(stack_t **head, unsigned int c)
 	}
 	if (len < 2)
 	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't div, stack too short\n", c);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
