@@ -90,3 +90,4 @@ void add_node(stack_t **h, int n)
 	nw->prev = NULL;
 	*h = nw;
 }
+

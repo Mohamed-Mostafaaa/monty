@@ -107,3 +107,4 @@ void op_div(stack_t **head, unsigned int c)
 	*head = h->next;
 	free(h);
 }
+

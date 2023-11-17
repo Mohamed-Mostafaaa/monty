@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * execute - executes the opcode
+ * exe - executes the opcode
  * @stack: head linked list - stack
  * @c: line_counter
  * @file: poiner to monty file
@@ -16,19 +16,14 @@ int exe(char *content, stack_t **stack, unsigned int c, FILE *file)
 		{"pall", mohamed_pall},
 		{"pop", mohamed_pop},
 		{"swap", mohamed_swap},
-		{"add", op_add},
-		{"sub", op_sub},
-		{"div", op_div},
-		{"mul", op_mul},
-		{"mod", op_mod},
+		{"add", op_add}, {"sub", op_sub}, {"div", op_div},
+		{"mul", op_mul}, {"mod", op_mod},
 		{"pint", print_top},
 		{"nop", do_nothing},
 		{"pchar", print_char},
 		{"pstr", print_int},
-		{"rotl", rotate_top},
-		{"rotr", rotate_bottom},
-		{"queue", qu},
-		{"stack", st},
+		{"rotl", rotate_top}, {"rotr", rotate_bottom},
+		{"queue", qu}, {"stack", st},
 		{NULL, NULL}};
 	unsigned int i = 0;
 	char *op;

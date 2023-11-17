@@ -53,3 +53,4 @@ void rotate_top(stack_t **h, __attribute__((unused)) unsigned int c)
 	(*h)->prev = tmp;
 	(*h) = aux;
 }
+

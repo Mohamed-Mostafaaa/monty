@@ -88,3 +88,4 @@ ssize_t getstdin(char **lineptr, int file);
 char *clean_line(char *content);
 
 #endif /* MONTY_H */
+

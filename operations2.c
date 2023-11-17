@@ -74,3 +74,4 @@ void op_mod(stack_t **head, unsigned int c)
 	*head = h->next;
 	free(h);
 }
+

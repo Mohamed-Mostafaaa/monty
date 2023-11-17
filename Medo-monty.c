@@ -24,7 +24,7 @@ void mohamed_pall(stack_t **head, unsigned int c)
 
 /**
  * mohamed_push - add node to the stack
- * @head: stack head
+ * @stack: stack head
  * @ln: line_number
  * Return: no return
  */
@@ -69,7 +69,7 @@ void mohamed_push(stack_t **stack, unsigned int ln)
 /**
  * mohamed_pop - prints the top
  * @head: stack head
- * @counter: line_number
+ * @c: line_number
  * Return: no return
  */
 void mohamed_pop(stack_t **head, unsigned int c)
@@ -120,3 +120,4 @@ void mohamed_swap(stack_t **stack, unsigned int ln)
 	h->n = h->next->n;
 	h->next->n = aux;
 }
+
