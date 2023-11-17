@@ -15,7 +15,7 @@ void medo_char(stack_t **stack, unsigned int ln)
 
 	axc = (*stack)->n;
 	if (axc < 0 || axc > 127)
-		string_err(10, ln);
+		str_error(10, ln);
 	printf("%c\n", axc);
 }
 
