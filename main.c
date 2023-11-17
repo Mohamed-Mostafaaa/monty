@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
  * @n: Number to go inside the node.
  * Return: Upon sucess a pointer to the node. Otherwise NULL.
  */
+
 stack_t *create_node(int n)
 {
 	stack_t *node;
@@ -41,6 +42,7 @@ stack_t *create_node(int n)
 /**
  * free_nodes - Frees nodes in the stack.
  */
+
 void free_nodes(void)
 {
 	stack_t *tmp;
@@ -56,28 +58,27 @@ void free_nodes(void)
 	}
 }
 
-
 /**
- * add_to_queue - Adds a node to the queue.
- * @new_node: Pointer to the new node.
+ * add_Queue - Adds a node to the queue.
+ * @nw: Pointer to the new node.
  * @ln: line number of the opcode.
  */
-void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
+
+void add_Queue(stack_t **nw, __attribute__((unused)) unsigned int ln)
 {
 	stack_t *tmp;
 
-	if (new_node == NULL || *new_node == NULL)
+	if (nw == NULL || *nw == NULL)
 		exit(EXIT_FAILURE);
 	if (head == NULL)
 	{
-		head = *new_node;
+		head = *nw;
 		return;
 	}
 	tmp = head;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 
-	tmp->next = *new_node;
-	(*new_node)->prev = tmp;
-
+	tmp->next = *nw;
+	(*nw)->prev = tmp;
 }
