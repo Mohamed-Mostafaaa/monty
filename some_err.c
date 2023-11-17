@@ -88,12 +88,12 @@ void more_err(int code_err, ...)
 }
 
 /**
- * string_err - handles errors.
+ * str_error - handles errors.
  * @code_err: The error codes are the following:
  * (10) ~> The number inside a node is outside ASCII bounds.
  * (11) ~> The stack is empty.
  */
-void string_err(int code_err, ...)
+void str_error(int code_err, ...)
 {
 	va_list ag;
 	int long_num;
