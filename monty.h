@@ -1,15 +1,13 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define _GNU_SOURCE
 #include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
 #include <unistd.h>
-#include <fcntl.h>
 #include <string.h>
+#include <stdlib.h>
 #include <ctype.h>
-#include <sys/stat.h>
-#include <sys/syscall.h>
+#include <stdarg.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -18,34 +16,14 @@
  * @next: points to the next element of the stack (or queue)
  *
  * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO Holberton project
+ * for stack, queues, LIFO, FIFO
  */
-
 typedef struct stack_s
 {
-	int n;
-	struct stack_s *prev;
-	struct stack_s *next;
+        int n;
+        struct stack_s *prev;
+        struct stack_s *next;
 } stack_t;
-
-/**
- * struct bus_s - variables -args, file, line content
- * @arg: value
- * @file: pointer to monty file
- * @content: line content
- * @lifi: flag change stack <-> queue
- * Description: carries values through the program
- */
-
-typedef struct bus_s
-{
-	char *arg;
-	FILE *file;
-	char *content;
-	int lifi;
-} bus_t;
-
-extern bus_t bus;
 
 /**
  * struct instruction_s - opcode and its function
@@ -53,39 +31,54 @@ extern bus_t bus;
  * @f: function to handle the opcode
  *
  * Description: opcode and its function
- * for stack, queues, LIFO, FIFO Holberton project
+ * for stack, queues, LIFO, FIFO
  */
-
 typedef struct instruction_s
 {
-	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-int exe(char *content, stack_t **head, unsigned int c, FILE *file);
-void mohamed_push(stack_t **head, unsigned int ln);
-void mohamed_pall(stack_t **head, unsigned int c);
-void mohamed_pop(stack_t **head, unsigned int c);
-void mohamed_swap(stack_t **stack, unsigned int ln);
-void op_add(stack_t **head, unsigned int c);
-void op_sub(stack_t **head, unsigned int c);
-void op_div(stack_t **head, unsigned int c);
-void op_mod(stack_t **head, unsigned int c);
-void op_mul(stack_t **head, unsigned int c);
-void st(stack_t **head, unsigned int c);
-void qu(stack_t **head, unsigned int c);
-void add_node(stack_t **h, int n);
-void add_queue(stack_t **head, int n);
-void rotate_bottom(stack_t **h, __attribute__((unused)) unsigned int c);
-void rotate_top(stack_t **h, unsigned int c);
-void free_stack(stack_t *head);
-void print_top(stack_t **h, unsigned int c);
-void print_char(stack_t **head, unsigned int c);
-void print_int(stack_t **head, unsigned int c);
-void do_nothing(stack_t **h, unsigned int c);
-char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
-ssize_t getstdin(char **lineptr, int file);
-char *clean_line(char *content);
+extern stack_t *head;
+typedef void (*op_func)(stack_t **, unsigned int);
 
-#endif /* MONTY_H */
+/*file operations*/
+void open_file(char *file_name);
+int parse_line(char *buffer, int line_number, int format);
+void read_file(FILE *);
+int len_chars(FILE *);
+void find_func(char *, char *, int, int);
 
+/*Stack operations*/
+stack_t *create_node(int n);
+void free_nodes(void);
+void print_stack(stack_t **, unsigned int);
+void add_to_stack(stack_t **, unsigned int);
+void add_to_queue(stack_t **, unsigned int);
+
+void call_fun(op_func, char *, char *, int, int);
+
+void print_top(stack_t **, unsigned int);
+void pop_top(stack_t **, unsigned int);
+void nop(stack_t **, unsigned int);
+void swap_nodes(stack_t **, unsigned int);
+
+/*Math operations with nodes*/
+void add_nodes(stack_t **, unsigned int);
+void sub_nodes(stack_t **, unsigned int);
+void div_nodes(stack_t **, unsigned int);
+void mul_nodes(stack_t **, unsigned int);
+void mod_nodes(stack_t **, unsigned int);
+
+/*String operations*/
+void print_char(stack_t **, unsigned int);
+void print_str(stack_t **, unsigned int);
+void rotl(stack_t **, unsigned int);
+
+/*Error hanlding*/
+void err(int error_code, ...);
+void more_err(int error_code, ...);
+void string_err(int error_code, ...);
+void rotr(stack_t **, unsigned int);
+
+#endif
