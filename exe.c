@@ -15,7 +15,7 @@ int exe(char *content, stack_t **stack, unsigned int c, FILE *file)
 		{"push", mohamed_push},
 		{"pall", mohamed_pall},
 		{"pop", mohamed_pop},
-		{"swap", mohmed_swap},
+		{"swap", mohamed_swap},
 		{"add", op_add},
 		{"sub", op_sub},
 		{"div", op_div},
