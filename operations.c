@@ -96,7 +96,7 @@ void op_div(stack_t **head, unsigned int c)
 	h = *head;
 	if (h->n == 0)
 	{
-		fprintf(stderr, "L%d: division by zero\n", counter);
+		fprintf(stderr, "L%d: division by zero\n", c);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
